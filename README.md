@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Internal JS</title>
-        <script src="type.js" type="text/javascript"></script>
-        <!-- internal JS in Head section -->
-        <!-- <script type="text/javascript">
-            document.write("Hello,Welcome to JavaScript in Head <br>");
-            alert("Internal JS");
-         </script>-->
-         <body>
-           <!-- <script>
-                document.write(" JS in Body section");
-                alert("data is submitted sucessfully");
-            </script>-->
-         </body>
+        <script>
+            function keyup()
+            {
+                document.getElementById("key-status").innerHTML="key up";
+            }
+            function keydown()
+            {
+                document.getElementById("key-status").innerHTML="key down";
+            }
+            function keypress(event)
+            {
+                document.getElementById("key-status").innerHTML="key press:"+ event.key;
+            }
+        </script>
     </head>
+        <body>
+            <h2>Keyboard Event in JavaScript</h2>
+            <input type="text" placeholder="press anykey" 
+            onkeyup="keyup()"
+            onkeydown="keydown()"
+            onkeypress="keypress(event)">
+            <p id="key-status" style="color:blue;font-size: 20px;font-family: Arial, Helvetica, sans-serif"></p>
+            <p id="key-press" style="color:green;font-size: 20px;font-family: Arial, Helvetica, sans-serif"></p>
+        </body>
 </html>
