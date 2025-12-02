@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Mouse Events</title>
+        <style>
+            #box {
+                width: 200px;
+                height: 200px;
+                background-color: lightblue;
+                border: 2px solid black;
+            }   
+        </style>
         <script>
-            function singleClick() {
-                document.getElementById("mouse-msg").innerHTML = "Single Click Event Triggered";
+            function box1() {
+                document.getElementById("box").style.color = "red";
+                document.getElementById("box").style.backgroundColor = "lightgreen";
             }
-            function doubleClick() {
-                document.getElementById("mouse-msg").innerHTML = "Double Click Event Triggered";
+            function box2() {
+                document.getElementById("box").style.color = "black";
+                document.getElementById("box").style.backgroundColor = "lightblue";
             }
-            function mouseOver() {
-                document.getElementById("mouse-msg").innerHTML = "Mouse Over Event Triggered";
-            }
-            function mouseOut() {
-                document.getElementById("mouse-msg").innerHTML = "Mouse Out Event Triggered";
-            }
-            function mouseMove() {
-                document.getElementById("mouse-msg").innerHTML = "Mouse Down Event Triggered";
+            function display() {
+                document.getElementById("btn").innerHTML = "double clicked";
             }
         </script>
     </head>
     <body>
-        <h2>Mouse based Event</h2>
-
-        <div style="width:300px; height:150px;background:rgb(255, 128, 0); border: 2px solid black;"
-            onclick="singleClick()"
-            ondblclick="doubleClick()"
-            onmouseover="mouseOver()"
-            onmouseout="mouseOut()"
-            onmousedown="mouseMove()">
-            <p> move/ Click Inside This Box</p>
+        <div id="box" onmouseover="box1()">
+            <p>BOX</p>
         </div>
-        <p id="mouse-msg" style="color:blue;font-weight:bold;"></p>
+        <div id="box" onmouseout="box2()">
+            <p>BOX</p>
+        </div>
+        <button id="btn" ondblclick="display()">click me</button>
     </body>
 </html>
