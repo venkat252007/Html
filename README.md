@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Mouse Events</title>
         <script>
-            function keyup()
-            {
-                document.getElementById("key-status").innerHTML="key up";
+            function singleClick() {
+                document.getElementById("mouse-msg").innerHTML = "Single Click Event Triggered";
             }
-            function keydown()
-            {
-                document.getElementById("key-status").innerHTML="key down";
+            function doubleClick() {
+                document.getElementById("mouse-msg").innerHTML = "Double Click Event Triggered";
             }
-            function keypress(event)
-            {
-                document.getElementById("key-status").innerHTML="key press:"+ event.key;
+            function mouseOver() {
+                document.getElementById("mouse-msg").innerHTML = "Mouse Over Event Triggered";
+            }
+            function mouseOut() {
+                document.getElementById("mouse-msg").innerHTML = "Mouse Out Event Triggered";
+            }
+            function mouseMove() {
+                document.getElementById("mouse-msg").innerHTML = "Mouse Down Event Triggered";
             }
         </script>
     </head>
-        <body>
-            <h2>Keyboard Event in JavaScript</h2>
-            <input type="text" placeholder="press anykey" 
-            onkeyup="keyup()"
-            onkeydown="keydown()"
-            onkeypress="keypress(event)">
-            <p id="key-status" style="color:blue;font-size: 20px;font-family: Arial, Helvetica, sans-serif"></p>
-            <p id="key-press" style="color:green;font-size: 20px;font-family: Arial, Helvetica, sans-serif"></p>
-        </body>
+    <body>
+        <h2>Mouse based Event</h2>
+
+        <div style="width:300px; height:150px;background:rgb(255, 128, 0); border: 2px solid black;"
+            onclick="singleClick()"
+            ondblclick="doubleClick()"
+            onmouseover="mouseOver()"
+            onmouseout="mouseOut()"
+            onmousedown="mouseMove()">
+            <p> move/ Click Inside This Box</p>
+        </div>
+        <p id="mouse-msg" style="color:blue;font-weight:bold;"></p>
+    </body>
 </html>
