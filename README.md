@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            #box {
-                width: 200px;
-                height: 200px;
-                background-color: lightblue;
-                border: 2px solid black;
-            }   
-        </style>
-        <script>
-            function box1() {
-                document.getElementById("box").style.color = "red";
-                document.getElementById("box").style.backgroundColor = "lightgreen";
+    <title>Form Validation</title>
+    <script>
+        function validform(){
+            let name=document.myform.username.value;
+            let email=document.myform.email.value;
+            if(name==""){
+                alert("please enter your name");
+                return false;
             }
-            function box2() {
-                document.getElementById("box").style.color = "black";
-                document.getElementById("box").style.backgroundColor = "lightblue";
+            if(email==""){
+                alert("Please enter your email");
+                return false;
             }
-            function display() {
-                document.getElementById("btn").innerHTML = "double clicked";
+            let pattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if(!email.match(pattern)){
+                alert("Please enter a valid email address");
+                return false;
             }
-        </script>
+            alert("Form submitted successfully");
+            return true;
+        }
+    </script>
     </head>
     <body>
-        <div id="box" onmouseover="box1()">
-            <p>BOX</p>
-        </div>
-        <div id="box" onmouseout="box2()">
-            <p>BOX</p>
-        </div>
-        <button id="btn" ondblclick="display()">click me</button>
+        <form name="myform" onsubmit="return alidform()">
+            Name  <input type="text" id="name" name="name"><br><br>
+            Email <input type="email" id="email" name="email"><br><br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
