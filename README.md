@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Form Validation</title>
-    <script>
-        function validform(){
-            let name=document.myform.username.value;
-            let email=document.myform.email.value;
-            if(name==""){
-                alert("please enter your name");
-                return false;
+        <title>Mouse Events</title>
+        <script>
+            function singleClick() {
+                document.getElementById("mouse-msg").innerHTML = "Single Click Event Triggered";
             }
-            if(email==""){
-                alert("Please enter your email");
-                return false;
+            function doubleClick() {
+                document.getElementById("mouse-msg").innerHTML = "Double Click Event Triggered";
             }
-            let pattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-            if(!email.match(pattern)){
-                alert("Please enter a valid email address");
-                return false;
+            function mouseOver() {
+                document.getElementById("mouse-msg").innerHTML = "Mouse Over Event Triggered";
             }
-            alert("Form submitted successfully");
-            return true;
-        }
-    </script>
+            function mouseOut() {
+                document.getElementById("mouse-msg").innerHTML = "Mouse Out Event Triggered";
+            }
+            function mouseMove() {
+                document.getElementById("mouse-msg").innerHTML = "Mouse Down Event Triggered";
+            }
+        </script>
     </head>
     <body>
-        <form name="myform" onsubmit="return alidform()">
-            Name  <input type="text" id="name" name="name"><br><br>
-            Email <input type="email" id="email" name="email"><br><br>
-            <input type="submit" value="Submit">
-        </form>
+        <h2>Mouse based Event</h2>
+
+        <div style="width:300px; height:150px;background:rgb(255, 128, 0); border: 2px solid black;"
+            onclick="singleClick()"
+            ondblclick="doubleClick()"
+            onmouseover="mouseOver()"
+            onmouseout="mouseOut()"
+            onmousedown="mouseMove()">
+            <p> move/ Click Inside This Box</p>
+        </div>
+        <p id="mouse-msg" style="color:blue;font-weight:bold;"></p>
     </body>
 </html>
